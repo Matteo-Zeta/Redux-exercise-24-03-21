@@ -1,0 +1,16 @@
+.PrimaryBall{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background-color: whitesmoke;
+  transition: background-color 0.5s ease;
+}
+.PrimaryBall.darkMode {
+  background-color: rgb(32, 32, 32);
+}
+.PrimaryBall.lightMode {
+  background-color:lightblue;
+}
