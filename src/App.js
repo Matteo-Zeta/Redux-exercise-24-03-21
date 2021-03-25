@@ -1,19 +1,18 @@
 import './App.css';
 import PrimaryBall from './components/PrimaryBall/PrimaryBall'
-import SecondaryBall from './components/SecondaryBall/SecondaryBall'
 
-import {useState} from 'react';
+import { setDarkMode, setLightMode } from './store/action';
+import { useDispatch } from "react-redux";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-  const [lightMode, setLightMode] = useState(false);
-  function turnDarkMode(){
-    setLightMode(false);
-    setDarkMode(true);
+
+  const dispatch = useDispatch();
+
+  function turnDarkMode() {
+    dispatch(setDarkMode())
   }
-  function turnLightMode(){
-    setLightMode(true);
-    setDarkMode(false);
+  function turnLightMode() {
+    dispatch(setLightMode())
   }
   return (
     <div className="App">
@@ -21,14 +20,12 @@ function App() {
         <h1>Esercizio 1</h1>
         <strong>Premi un pulsante per cambiare il tema:</strong>
         <div className="button-container">
-          <button type="button" id="darkBtn" onClick={() => {turnDarkMode()}}>Dark Mode</button>
-          <button type="button" id="lightBtn" onClick={() => {turnLightMode()}}>Light Mode</button>
+          <button type="button" id="darkBtn" onClick={() => { turnDarkMode() }}>Dark Mode</button>
+          <button type="button" id="lightBtn" onClick={() => { turnLightMode() }}>Light Mode</button>
         </div>
       </div>
       <div className="ball-container">
-        <PrimaryBall darkMode={darkMode} lightMode={lightMode}>
-          <SecondaryBall darkMode={darkMode} lightMode={lightMode}/>
-        </PrimaryBall>
+        <PrimaryBall />
       </div>
     </div>
   );
