@@ -5,8 +5,7 @@ import {ColorModeContext} from '../../context/ColorModeProvider'
 import SecondaryBall from '../SecondaryBall/SecondaryBall'
 
 function PrimaryBall() {
-  const {state: {lightMode}} = useContext(ColorModeContext)
-  const {state: {darkMode}} = useContext(ColorModeContext)
+  const {state: {lightMode, darkMode}} = useContext(ColorModeContext)
   return (
     <div className={`PrimaryBall ${ darkMode ? `darkMode` : lightMode ? `lightMode` : '' }`}>
       <SecondaryBall />
