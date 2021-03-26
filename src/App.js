@@ -1,18 +1,19 @@
 import './App.css';
 import PrimaryBall from './components/PrimaryBall/PrimaryBall'
 
-import { setDarkMode, setLightMode } from './store/action';
-import { useDispatch } from "react-redux";
+//import { setDarkMode, setLightMode } from './store/action';
+import { useContext } from "react";
+import {ColorModeContext} from './context/ColorModeProvider'
 
 function App() {
 
-  const dispatch = useDispatch();
+  const {setDarkMode, setLightMode} = useContext(ColorModeContext)
 
   function turnDarkMode() {
-    dispatch(setDarkMode())
+    setDarkMode()
   }
   function turnLightMode() {
-    dispatch(setLightMode())
+    setLightMode()
   }
   return (
     <div className="App">

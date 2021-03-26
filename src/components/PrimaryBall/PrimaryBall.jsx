@@ -1,11 +1,12 @@
 import './PrimaryBall.css';
-import {useSelector} from "react-redux";
+import {useContext} from "react";
+import {ColorModeContext} from '../../context/ColorModeProvider'
 
 import SecondaryBall from '../SecondaryBall/SecondaryBall'
 
 function PrimaryBall() {
-  const darkMode = useSelector(state => state.darkMode);
-  const lightMode = useSelector(state => state.lightMode);
+  const {state: {lightMode}} = useContext(ColorModeContext)
+  const {state: {darkMode}} = useContext(ColorModeContext)
   return (
     <div className={`PrimaryBall ${ darkMode ? `darkMode` : lightMode ? `lightMode` : '' }`}>
       <SecondaryBall />
